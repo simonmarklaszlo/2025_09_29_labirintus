@@ -1,4 +1,3 @@
-//server.js
 const express = require("express");
 const cors = require("cors");
 const MazeGenerator = require("./mazeGenerator");
@@ -16,5 +15,6 @@ app.get("/maze", (req, res) => {
     res.json(maze);
 });
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Maze API running on http://localhost:${PORT}`));
+// Környezeti változó használata (fontos production-höz!)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Maze API running on port ${PORT}`));
